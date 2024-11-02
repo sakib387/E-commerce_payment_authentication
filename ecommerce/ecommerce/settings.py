@@ -73,6 +73,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'jucse28.387@gmail.com'  # Your Gmail address
+EMAIL_HOST_PASSWORD = 'sngn pyth bzvh bgnj'  # App-specific password for Gmail
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
