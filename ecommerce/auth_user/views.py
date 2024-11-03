@@ -12,7 +12,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 
 # views.py
 from django.utils.http import urlsafe_base64_decode
@@ -87,7 +87,7 @@ def signIn(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-
+        
         # Find user by email
         try:
             username = User.objects.get(email=email).username
@@ -96,12 +96,14 @@ def signIn(request):
                 'error_message': "User with this email does not exist."
             })
 
+
+    
         # Authenticate user
         user = authenticate(request, username=username, password=password)
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'base.html', {
+                return render(request, 'index.html', {
                     'success_message': "Login successful!"
                 })
             else:
@@ -116,4 +118,5 @@ def signIn(request):
     return render(request, "login.html")
 
 def signOut(request):
+    logout(request)
     return redirect("/auth/signIn")

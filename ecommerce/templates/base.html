@@ -58,14 +58,19 @@
           <li><a href="/order">Orders</a></li>
           <li><a href="/profile">Profile</a></li>
           <li class="dropdown">
-            <a href="#"><span>Sign In</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="/auth/signIn">Log In</a></li>
-              <li><a href="/auth/signOut">Log Out</a></li>
-              <li><a href="/auth/signUp">Sign Up</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact" class="btn-getstarted">Contact</a></li>
+            {% if request.user.is_authenticated %}
+                <a href="/auth/signOut">Log Out</a>
+            {% else %}
+                <a href="#"><span>Sign In</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                    <li><a href="/auth/signIn">Log In</a></li>
+                    <li><a href="/auth/signUp">Sign Up</a></li>
+                </ul>
+            {% endif %}
+        </li>
+        
+        
+          <!--<li><a href="#contact" class="btn-getstarted">Contact</a></li>-->
           <li><a href="#cart" class="btn-getstarted bg-primary">Cart</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
