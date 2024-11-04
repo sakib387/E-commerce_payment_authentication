@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Your Cart{% endblock %}
+{% block hero_section %}
+<!-- No hero section for this page -->
+{% endblock hero_section %}
+{% block body %}
+<div class="container">
+    <h2>Your Cart</h2>
+    {% if cart_items %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>${{ item.product.price }}</td>
+                        <td>${{ item.total_price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Total to Pay: ${{ total_price }}</h3>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+    <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+</div>
+{% endblock %}

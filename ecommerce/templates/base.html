@@ -56,7 +56,7 @@
           <li><a href="/about">About</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/order">Orders</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li><a href="/cart">Cart (<span id="cart-count">0</span>)</a></li>
           <li class="dropdown">
             {% if request.user.is_authenticated %}
                 <a href="/auth/signOut">Log Out</a>
@@ -77,25 +77,27 @@
       </nav>
     </div>
   </header>
-
-  <!-- Hero Section -->
-  <section id="hero" class="hero section light-background">
+<!-- Hero Section -->
+{% block hero_section %}
+<section id="hero" class="hero section light-background">
     <div class="container">
-      <div class="row gy-4 justify-content-center justify-content-lg-between">
-        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h1>
-          <p data-aos="fade-up" data-aos-delay="100">We are a team of talented designers making websites with Bootstrap</p>
-          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#book-a-table" class="btn-get-started">Book a Table</a>
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div>
+        <div class="row gy-4 justify-content-center justify-content-lg-between">
+            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <h1 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h1>
+                <p data-aos="fade-up" data-aos-delay="100">We are a team of talented designers making websites with Bootstrap</p>
+                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#book-a-table" class="btn-get-started">Book a Table</a>
+                    <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="Hero Image">
+            </div>
         </div>
-        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="Hero Image">
-        </div>
-      </div>
     </div>
-  </section><!-- /Hero Section -->
+</section><!-- /Hero Section -->
+{% endblock hero_section %}
+
 
   <main class="main">
     {% block body %}{% endblock body %}
@@ -162,6 +164,39 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to update the cart count
+        function updateCartCount(count) {
+            document.getElementById('cart-count').innerText = count;
+        }
+    
+        // Set up event listeners for all "Add to Cart" buttons
+        const addToCartButtons = document.querySelectorAll('.btn-primary');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Make an AJAX request to update cart count server-side
+                fetch('/add_to_cart/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ product_id: this.dataset.productId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update the cart count displayed on the page
+                    if (data.success) {
+                        updateCartCount(data.cart_count);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+    </script>
+    
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}" defer></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>

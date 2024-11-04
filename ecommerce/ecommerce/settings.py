@@ -76,6 +76,12 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 # settings.py
 
+# settings.py
+SSLCOMMERZ_STORE_ID = 'sakib6728c21bef9ab'
+SSLCOMMERZ_STORE_PASS = 'sakib6728c21bef9ab@ssl'
+SSLCOMMERZ_SANDBOX = True  # Set to False for production
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
