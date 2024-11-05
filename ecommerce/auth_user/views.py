@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect,HttpResponse
 
 
 # views.py
+from .utils import redirect_authenticated_user
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.utils.http import urlsafe_base64_encode
@@ -82,12 +83,13 @@ def signUp(request):
 
     return render(request, "signUp.html")
 
- 
+   
+
+@redirect_authenticated_user
 def signIn(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        
         # Find user by email
         try:
             username = User.objects.get(email=email).username

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block title %} Home {% endblock title %}
 {% block body %}
+{% if error_message %}
+        
+<div class="alert alert-success" id="successMessage" style="">
+    {{ error_message }}
+</div>
+
+{% endif %}
 <div class="container">
+  
   <section id="menu" class="menu section">
     <div class="container section-title" data-aos="fade-up">
       
