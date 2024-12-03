@@ -1,6 +1,9 @@
 # TestHub
 
-TestHub is a full-featured e-commerce web application built with Django. The platform allows users to browse and purchase various food products categorized as drinks, lunch, breakfast, and dinner. The application provides a seamless experience for account management, product selection, and checkout.
+TestHub is a full-featured e-commerce web application built with Django. The platform allows users to browse and purchase various food products categorized as drinks, lunch, breakfast, and dinner. The application provides a seamless experience for account management, product selection, and checkout. 
+ 
+![1](https://github.com/user-attachments/assets/86f0a7a6-4a90-4641-a8c7-be46b8e3f46e)
+
 
 ## Features
 
