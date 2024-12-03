@@ -20,6 +20,11 @@ TestHub is a full-featured e-commerce web application built with Django. The pla
 ### Product Browsing & Management
 - **Categories:**
   - Products are categorized into drinks, lunch, breakfast, and dinner for easy navigation.
+  - ![4](https://github.com/user-attachments/assets/96b4bf11-7c3b-4843-bd87-b0b47535b71d)
+![8](https://github.com/user-attachments/assets/d685e2c8-19af-492c-ab5b-2c430c145399)
+![6](https://github.com/user-attachments/assets/3305e834-269e-489d-ab8b-4f911748b251)
+![5](https://github.com/user-attachments/assets/8eb7fa04-7063-48cf-8b27-76a6fb9079ba)
+
 - **Cart Management:**
   - Users can add items to their cart and view the cart contents.
 
