@@ -33,10 +33,12 @@ TestHub is a full-featured e-commerce web application built with Django. The pla
 - **Payment Methods:**
   - Supports multiple payment methods including credit/debit cards, mobile banking, and bank transfers.
 ![10](https://github.com/user-attachments/assets/4ae34bbd-b827-4953-8c9c-d6d794d4f55b)
-![14](https://github.com/user-attachments/assets/4da30a87-74ff-4357-a435-985ae9b4d38e)
-![13](https://github.com/user-attachments/assets/2aa8e9bb-5953-4c4a-9a15-58aa9cb1aa3c)
+ 
 ![12](https://github.com/user-attachments/assets/d9b4b0c2-c760-4fe1-aaba-a699d2af98b7)
 ![11](https://github.com/user-attachments/assets/f88052e3-368d-42a0-afcd-2ad31e9415a4)
+ 
+![13](https://github.com/user-attachments/assets/2aa8e9bb-5953-4c4a-9a15-58aa9cb1aa3c)
+![14](https://github.com/user-attachments/assets/4da30a87-74ff-4357-a435-985ae9b4d38e)
 
 ## Installation & Setup
 
