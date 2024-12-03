@@ -8,9 +8,14 @@ TestHub is a full-featured e-commerce web application built with Django. The pla
 - **Sign Up & Authentication:**
   - Users can create accounts by signing up.
   - Email verification is implemented; users receive an activation link via email to activate their accounts.
+  - ![2](https://github.com/user-attachments/assets/87326a5e-5d7a-4e8e-abe0-c7921c0ec40c)
+
 - **Login & Logout:**
   - Users can securely log in and log out.
   - ![1](https://github.com/user-attachments/assets/76c50578-53a2-4b60-86b9-e5d2ae5691bf)
+![3](https://github.com/user-attachments/assets/a0642fc1-93db-49a1-8cf4-6b3c5a2b03d0)
+![15](https://github.com/user-attachments/assets/3a89a890-8054-4653-9322-a00dc4e7c295)
+![16](https://github.com/user-attachments/assets/6c2d5fed-aed1-4046-af6d-98739fd784ed)
 
 ### Product Browsing & Management
 - **Categories:**
